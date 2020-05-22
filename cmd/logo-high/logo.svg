@@ -1,74 +1,74 @@
 <?xml version="1.0" ?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1140px" height="825px" stroke="black" stroke-width="30" fill="transparent">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="760px" height="550px" stroke="black" stroke-width="20" fill="transparent">
   <clipPath id="wing1Clip">
-    <rect x="15" y="330" width="345" height="315" />
+    <rect x="10" y="220" width="243" height="210" />
   </clipPath>
-  <circle clip-path="url(#wing1Clip)" cx="330" cy="645" r="300" />
-  <line x1="30" y1="645" x2="30" y2="768" />
+  <circle clip-path="url(#wing1Clip)" cx="220" cy="430" r="200" />
+  <line x1="20" y1="430" x2="20" y2="511" />
   <clipPath id="wing1feather1Clip">
-    <rect x="15" y="768" width="84" height="42" />
+    <rect x="10" y="511" width="58" height="29" />
   </clipPath>
-  <circle clip-path="url(#wing1feather1Clip)" cx="57" cy="768" r="27" />
-  <line x1="84" y1="606" x2="84" y2="768" />
+  <circle clip-path="url(#wing1feather1Clip)" cx="39" cy="511" r="19" />
+  <line x1="58" y1="397" x2="58" y2="511" />
   <clipPath id="wing1feather2Clip">
-    <rect x="69" y="714" width="84" height="42" />
+    <rect x="48" y="473" width="58" height="29" />
   </clipPath>
-  <circle clip-path="url(#wing1feather2Clip)" cx="111" cy="714" r="27" />
-  <line x1="138" y1="579" x2="138" y2="714" />
+  <circle clip-path="url(#wing1feather2Clip)" cx="77" cy="473" r="19" />
+  <line x1="96" y1="378" x2="96" y2="473" />
   <clipPath id="wing1feather3Clip">
-    <rect x="123" y="660" width="84" height="42" />
+    <rect x="86" y="435" width="58" height="29" />
   </clipPath>
-  <circle clip-path="url(#wing1feather3Clip)" cx="165" cy="660" r="27" />
-  <line x1="192" y1="552" x2="192" y2="660" />
+  <circle clip-path="url(#wing1feather3Clip)" cx="115" cy="435" r="19" />
+  <line x1="134" y1="359" x2="134" y2="435" />
   <clipPath id="wing1feather4Clip">
-    <rect x="177" y="606" width="84" height="42" />
+    <rect x="124" y="397" width="58" height="29" />
   </clipPath>
-  <circle clip-path="url(#wing1feather4Clip)" cx="219" cy="606" r="27" />
-  <line x1="246" y1="525" x2="246" y2="606" />
+  <circle clip-path="url(#wing1feather4Clip)" cx="153" cy="397" r="19" />
+  <line x1="172" y1="340" x2="172" y2="397" />
   <clipPath id="wing1feather5Clip">
-    <rect x="231" y="552" width="84" height="42" />
+    <rect x="162" y="359" width="58" height="29" />
   </clipPath>
-  <circle clip-path="url(#wing1feather5Clip)" cx="273" cy="552" r="27" />
-  <line x1="300" y1="498" x2="300" y2="552" />
-  <circle cx="570" cy="180" r="150" />
+  <circle clip-path="url(#wing1feather5Clip)" cx="191" cy="359" r="19" />
+  <line x1="210" y1="321" x2="210" y2="359" />
+  <circle cx="380" cy="120" r="100" />
   <clipPath id="parenClip">
-    <rect x="330" y="345" width="480" height="330" />
+    <rect x="220" y="230" width="320" height="220" />
   </clipPath>
-  <circle clip-path="url(#parenClip)" cx="570" cy="510" r="225" />
+  <circle clip-path="url(#parenClip)" cx="380" cy="340" r="150" />
   <clipPath id="nClip">
-    <rect x="420" y="345" width="330" height="145" />
+    <rect x="280" y="230" width="220" height="96" />
   </clipPath>
-  <line x1="470" y1="375" x2="470" y2="645" />
-  <circle clip-path="url(#nClip)" cx="570" cy="490" r="100" />
-  <line x1="670" y1="490" x2="670" y2="645" />
+  <line x1="314" y1="250" x2="314" y2="430" />
+  <circle clip-path="url(#nClip)" cx="380" cy="326" r="66" />
+  <line x1="446" y1="326" x2="446" y2="430" />
   <clipPath id="wing2Clip">
-    <rect x="780" y="330" width="345" height="315" />
+    <rect x="507" y="220" width="243" height="210" />
   </clipPath>
-  <circle clip-path="url(#wing2Clip)" cx="810" cy="645" r="300" />
-  <line x1="1110" y1="645" x2="1110" y2="768" />
+  <circle clip-path="url(#wing2Clip)" cx="540" cy="430" r="200" />
+  <line x1="740" y1="430" x2="740" y2="511" />
   <clipPath id="wing2feather1Clip">
-    <rect x="1041" y="768" width="84" height="42" />
+    <rect x="692" y="511" width="58" height="29" />
   </clipPath>
-  <circle clip-path="url(#wing2feather1Clip)" cx="1083" cy="768" r="27" />
-  <line x1="1056" y1="606" x2="1056" y2="768" />
+  <circle clip-path="url(#wing2feather1Clip)" cx="721" cy="511" r="19" />
+  <line x1="702" y1="397" x2="702" y2="511" />
   <clipPath id="wing2feather2Clip">
-    <rect x="987" y="714" width="84" height="42" />
+    <rect x="654" y="473" width="58" height="29" />
   </clipPath>
-  <circle clip-path="url(#wing2feather2Clip)" cx="1029" cy="714" r="27" />
-  <line x1="1002" y1="579" x2="1002" y2="714" />
+  <circle clip-path="url(#wing2feather2Clip)" cx="683" cy="473" r="19" />
+  <line x1="664" y1="378" x2="664" y2="473" />
   <clipPath id="wing2feather3Clip">
-    <rect x="933" y="660" width="84" height="42" />
+    <rect x="616" y="435" width="58" height="29" />
   </clipPath>
-  <circle clip-path="url(#wing2feather3Clip)" cx="975" cy="660" r="27" />
-  <line x1="948" y1="552" x2="948" y2="660" />
+  <circle clip-path="url(#wing2feather3Clip)" cx="645" cy="435" r="19" />
+  <line x1="626" y1="359" x2="626" y2="435" />
   <clipPath id="wing2feather4Clip">
-    <rect x="879" y="606" width="84" height="42" />
+    <rect x="578" y="397" width="58" height="29" />
   </clipPath>
-  <circle clip-path="url(#wing2feather4Clip)" cx="921" cy="606" r="27" />
-  <line x1="894" y1="525" x2="894" y2="606" />
+  <circle clip-path="url(#wing2feather4Clip)" cx="607" cy="397" r="19" />
+  <line x1="588" y1="340" x2="588" y2="397" />
   <clipPath id="wing2feather5Clip">
-    <rect x="825" y="552" width="84" height="42" />
+    <rect x="540" y="359" width="58" height="29" />
   </clipPath>
-  <circle clip-path="url(#wing2feather5Clip)" cx="867" cy="552" r="27" />
-  <line x1="840" y1="498" x2="840" y2="552" />
-  <line x1="0" y1="825" x2="1140" y2="825" stroke="blue" stroke-width="1" />  <line x1="1140" y1="0" x2="1140" y2="825" stroke="blue" stroke-width="1" /></svg>
+  <circle clip-path="url(#wing2feather5Clip)" cx="569" cy="359" r="19" />
+  <line x1="550" y1="321" x2="550" y2="359" />
+</svg>

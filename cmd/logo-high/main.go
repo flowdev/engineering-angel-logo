@@ -6,18 +6,19 @@ import (
 
 func main() {
 	// global
-	oSize := 300
-	margin := oSize / 10
+	oSize := 200
 	color := "black"
 	stroke := oSize / 10
+	margin := stroke/2 + oSize/20
 	featherN := 5
 
 	// wing1
 	wing1ClipX := margin - stroke/2
 	wingClipY := margin + oSize
-	wingClipWidth := oSize + stroke/2 + margin
+	wingShoulder := oSize / 6
+	wingClipWidth := oSize + stroke/2 + wingShoulder
 	wingClipHeight := oSize + stroke/2
-	wing1CircX := wing1ClipX + wingClipWidth - margin
+	wing1CircX := wing1ClipX + wingClipWidth - wingShoulder
 	wingCircY := wingClipY + wingClipHeight
 	wingCircR := oSize
 
@@ -52,12 +53,12 @@ func main() {
 	nLineY2 := parenClipY + parenClipHeight - margin
 
 	// wing2
-	wing2ClipX := parenClipX + parenClipWidth - margin
-	wing2CircX := wing2ClipX + margin
+	wing2ClipX := parenClipX + parenClipWidth - wingShoulder
+	wing2CircX := wing2ClipX + wingShoulder
 
 	// all
 	widthAll := wing2ClipX + wingClipWidth + margin - stroke/2
-	heightAll := wingCircY + oSize/2 + margin //oSize*3 + margin*2
+	heightAll := wingCircY + oSize/2 + margin
 
 	// header
 	fmt.Println(`<?xml version="1.0" ?>`)
@@ -74,7 +75,7 @@ func main() {
 	fmt.Printf(`  <circle clip-path="url(#wing1Clip)" cx="%d" cy="%d" r="%d" />`,
 		wing1CircX, wingCircY, wingCircR)
 	fmt.Println()
-	featherR := (wingCircR - stroke) / featherN / 2
+	featherR := (wingCircR - stroke/2) / featherN / 2
 	feather0X := wing1ClipX + stroke/2
 	feather0Y := wingCircY + oSize/2 - featherR
 	fmt.Printf(`  <line x1="%d" y1="%d" x2="%d" y2="%d" />`,
@@ -135,7 +136,7 @@ func main() {
 		nLine2X, nLine2Y1, nLine2X, nLineY2)
 	fmt.Println()
 
-	// wing 2
+	// wing2
 	fmt.Println(`  <clipPath id="wing2Clip">`)
 	fmt.Printf(`    <rect x="%d" y="%d" width="%d" height="%d" />`,
 		wing2ClipX, wingClipY, wingClipWidth, wingClipHeight)
@@ -144,7 +145,6 @@ func main() {
 	fmt.Printf(`  <circle clip-path="url(#wing2Clip)" cx="%d" cy="%d" r="%d" />`,
 		wing2CircX, wingCircY, wingCircR)
 	fmt.Println()
-	featherR = (wingCircR - stroke) / featherN / 2
 	feather0X = wing2ClipX + wingClipWidth - stroke/2
 	fmt.Printf(`  <line x1="%d" y1="%d" x2="%d" y2="%d" />`,
 		feather0X, wingCircY, feather0X, feather0Y)
@@ -168,16 +168,17 @@ func main() {
 		fmt.Printf(`  <line x1="%d" y1="%d" x2="%d" y2="%d" />`,
 			featherX-featherR,
 			featherY-featherR-(featherN-i)*(featherR),
-			//feather0Y-(i+1)*featherR*2-featherR-(featherN-i)*stroke,
 			featherX-featherR,
 			featherY,
 		)
 		fmt.Println()
 	}
 
-	fmt.Printf(`  <line x1="%d" y1="%d" x2="%d" y2="%d" stroke="blue" stroke-width="1" />`,
-		0, heightAll, widthAll, heightAll)
-	fmt.Printf(`  <line x1="%d" y1="%d" x2="%d" y2="%d" stroke="blue" stroke-width="1" />`,
-		widthAll, 0, widthAll, heightAll)
+	/*
+		fmt.Printf(`  <line x1="%d" y1="%d" x2="%d" y2="%d" stroke="blue" stroke-width="1" />`,
+			0, heightAll, widthAll, heightAll)
+		fmt.Printf(`  <line x1="%d" y1="%d" x2="%d" y2="%d" stroke="blue" stroke-width="1" />`,
+			widthAll, 0, widthAll, heightAll)
+	*/
 	fmt.Println(`</svg>`)
 }
