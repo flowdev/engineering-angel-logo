@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func main() {
@@ -14,7 +15,7 @@ func main() {
 
 	// wing1
 	wing1ClipX := margin - stroke/2
-	wingClipY := margin + oSize
+	wingClipY := margin + oSize*3/4
 	wingShoulder := oSize / 6
 	wingClipWidth := oSize + stroke/2 + wingShoulder
 	wingClipHeight := oSize + stroke/2
@@ -27,18 +28,25 @@ func main() {
 	oY := margin + oR
 
 	// ^
-	arrTipX := wing1CircX + oSize
-	arrTipY := oY + oR + stroke*2
-	arrTipWidth := oSize // / 4 * 3
-	arrTipHeight := stroke * 2
-
-	// |
+	arrWidth := stroke * 2
+	arrHeadLen := oSize * 3 / 4
+	arrHeadX := wing1CircX + arrHeadLen*5/6
+	arrHeadY := oY + oR + stroke + stroke/2
 
 	// O (2)
-	oX := arrTipX
+	oX := arrHeadX
+
+	// |
+	arrShaftY := arrHeadY + arrWidth*2 + stroke
+	arrShaftX := arrHeadX - arrWidth/2
+	arrShaftLen := arrHeadLen // * 4 / 3
+
+	// square
+	squareWidth := oSize
+	squareHeight := oSize / 4
 
 	// wing2
-	wing2ClipX := arrTipX + arrTipWidth - wingShoulder
+	wing2ClipX := arrHeadX + (arrHeadX - wing1CircX) - wingShoulder
 	wing2CircX := wing2ClipX + wingShoulder
 
 	// all
@@ -96,11 +104,38 @@ func main() {
 	fmt.Println()
 
 	// ^
-	fmt.Printf(`  <rect x="%d" y="%d" width="%d" height="%d" rx="%d" ry="%d" transform="rotate(135, %d, %d)"/>`,
-		arrTipX-arrTipHeight/2, arrTipY, arrTipWidth, arrTipHeight, arrTipHeight/2, arrTipHeight/2, arrTipX, arrTipY+arrTipHeight/2)
+	sin45 := 0.5 * math.Sqrt(2.0) // sin(45 degree) == (1/2) * sqrt(2) == cos(45 degree)
+	arrHeadR := arrWidth / 2
+	arrHeadShift := int(math.Round(float64(arrHeadR) * sin45))
+	arrHeadLowShift := pythagorasSmall(arrWidth)
+	arrHeadBigLineWH := pythagorasSmall(arrHeadLen - arrWidth + arrHeadShift)
+	arrHeadSmlLineWH := pythagorasSmall(arrHeadLen - arrWidth - arrWidth/2 + arrHeadShift)
+	fmt.Printf(`<path d="M%d,%d
+		a%d,%d 0 0,1 %d,%d
+		l %d,%d
+		a%d,%d 0 0,1 %d,%d
+		l %d,%d
+		l %d,%d
+		a%d,%d 0 0,1 %d,%d
+		Z" />`,
+		arrHeadX-arrHeadShift, arrHeadY+arrHeadR-arrHeadShift,
+		arrHeadR, arrHeadR, arrHeadShift*2, 0,
+		arrHeadBigLineWH, arrHeadBigLineWH,
+		arrHeadR, arrHeadR, -arrHeadLowShift, arrHeadLowShift,
+		-arrHeadSmlLineWH, -arrHeadSmlLineWH,
+		-arrHeadSmlLineWH, arrHeadSmlLineWH,
+		arrHeadR, arrHeadR, -arrHeadLowShift, -arrHeadLowShift,
+	)
 	fmt.Println()
-	fmt.Printf(`  <rect x="%d" y="%d" width="%d" height="%d" rx="%d" ry="%d" transform="rotate(45, %d, %d)"/>`,
-		arrTipX-arrTipHeight/2, arrTipY, arrTipWidth, arrTipHeight, arrTipHeight/2, arrTipHeight/2, arrTipX, arrTipY+arrTipHeight/2)
+
+	// |
+	fmt.Printf(`  <rect x="%d" y="%d" width="%d" height="%d" rx="%d" ry="%d" />`,
+		arrShaftX, arrShaftY, arrWidth, arrShaftLen, arrWidth/2, arrWidth/2)
+	fmt.Println()
+
+	// square
+	fmt.Printf(`  <rect x="%d" y="%d" width="%d" height="%d" />`,
+		arrHeadX-squareWidth/2, feather0Y+featherR-squareHeight, squareWidth, squareHeight)
 	fmt.Println()
 
 	// wing2
@@ -148,4 +183,8 @@ func main() {
 			widthAll, 0, widthAll, heightAll)
 	*/
 	fmt.Println(`</svg>`)
+}
+
+func pythagorasSmall(c int) int {
+	return int(math.Round(math.Sqrt(float64(c * c / 2))))
 }
