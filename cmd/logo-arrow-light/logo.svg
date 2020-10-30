@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="184px" height="205px">
+  <path d="M40,95
+		Q3,95 3,40
+		T20,10
+		T80,55
+		Z"
+		fill="#00569a" />
+  <circle cx="92" cy="25" r="25" fill="#00569a" />
+  <path d="M85,63
+		a10,10 0 0,1 14,0
+		l 44,44
+		a10,10 0 0,1 -14,14
+		l -37,-37
+		l -37,37
+		a10,10 0 0,1 -14,-14
+		Z"
+		fill="#00569a" />
+  <rect x="82" y="100" width="20" height="75" rx="10" ry="10" fill="#00569a" />
+  <rect x="42" y="185" width="100" height="20" fill="#00569a" />
+  <path d="M104,55
+		Q154,40 164,20
+		T179,40
+		T144,95
+		Z"
+		fill="#00569a" />
+</svg>
