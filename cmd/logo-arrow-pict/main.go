@@ -5,19 +5,22 @@ import (
 	"math"
 )
 
-// SVG logo for EngineeringAngel, }->{
+// SVG logo for EngineeringAngel, EngNgl, E-NGL, }|->o{, ->o:)
 
 func main() {
 	// global
 	oSize := 120
 	blue := "#00569a"
-	red := "#b00b0b"
-	green := "#0aa00a"
-	orange := "#db6200"
-	//red := blue
-	//green := blue
-	//orange := blue
+	//red := "#b00b0b"
+	//green := "#0aa00a"
+	//orange := "#db6200"
+	red := blue
+	green := blue
+	orange := blue
 	margin := oSize / 10
+	if margin < 2 {
+		margin = 2
+	}
 
 	// wing1 (1)
 	wing1X := oSize - margin*3/2
@@ -78,7 +81,7 @@ func main() {
 		margin,
 		arrWidth*3/2, arrHeadR, arrHeadR, arrWidth, -arrWidth*3/2,
 		wing1X-arrWidth,
-		arrWidth*5/2, arrHeadR, arrHeadR, arrWidth,
+		arrWidth*2, arrHeadR, arrHeadR, arrWidth,
 		wing1X, wingY, orange,
 	)
 	fmt.Println()
@@ -139,7 +142,7 @@ func main() {
 		-margin,
 		arrWidth*3/2, arrHeadR, arrHeadR, -arrWidth, -arrWidth*3/2,
 		wing2X+arrWidth,
-		arrWidth*5/2, arrHeadR, arrHeadR, -arrWidth,
+		arrWidth*2, arrHeadR, arrHeadR, -arrWidth,
 		wing2X, wingY, orange,
 	)
 	fmt.Println()

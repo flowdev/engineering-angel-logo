@@ -7,19 +7,22 @@ import (
 
 func main() {
 	// global
-	oSize := 200
-	//red := "#b00b0b"
+	oSize := 120
 	blue := "#00569a"
+	//red := "#b00b0b"
 	//green := "#0aa00a"
 	//orange := "#db6200"
 	red := blue
 	green := blue
 	orange := blue
 	margin := oSize / 10
+	if margin < 2 {
+		margin = 2
+	}
 
 	// wing1 (1)
 	wingM := oSize / 5
-	wing1X := oSize - wingM/2
+	wing1X := oSize - wingM
 
 	// O (1)
 	oR := oSize / 4
@@ -62,31 +65,15 @@ func main() {
 
 	// wing1
 	fmt.Printf(`  <path d="M%d,%d
-		Q%d,%d %d,%d
-		T%d,%d
-		T%d,%d
-		Z"
-		fill="%s" />`,
-		wing1X-wingM*2, wingY+wingM*2,
-		margin/3, wingY+wingM*2, margin/3, wingM*2,
-		wingM, margin,
-		wing1X, wingY,
-		orange,
-	)
-	/*
-		fmt.Printf(`  <path d="M%d,%d
+			L%d,%d
 			Q%d,%d %d,%d
-			T%d,%d
-			T%d,%d
 			Z"
-			fill="%s" />`,
-			wing1X, wingY,
-			wingM+margin, wingM*2, wingM, margin*2,
-			margin/2, wingM*2,
-			wing1X-wingM*2, wingY+wingM*2,
-			orange,
-		)
-	*/
+			stroke="%s" stroke-width="%d" fill="none" />`,
+		wing1X-arrWidth/2, wingY,
+		wing1X-arrWidth/2-wingM*8/4, wingY-wingM*8/4,
+		0, wingY-wingM/2, wing1X-wingM*3/2-arrWidth/2, wingY+wingM*3/2,
+		orange, arrWidth,
+	)
 	fmt.Println()
 
 	// O
@@ -132,22 +119,23 @@ func main() {
 
 	// wing2
 	fmt.Printf(`  <path d="M%d,%d
-		Q%d,%d %d,%d
-		T%d,%d
-		Z"
-		fill="%s" />`,
-		wing2X, wingY,
-		allWidth-margin/5, wingY, allWidth-margin/5, wingY+wingM*7/2,
-		allWidth-wing1X+wingM*5/2, wingY+wingM*5/2,
-		orange,
+			L%d,%d
+			Q%d,%d %d,%d
+			Z"
+			stroke="%s" stroke-width="%d" fill="none" />`,
+		wing2X+arrWidth/2, wingY,
+		wing2X+arrWidth/2+wingM*8/4, wingY-wingM*8/4,
+		allWidth, wingY-wingM/2, wing2X+wingM*3/2+arrWidth/2, wingY+wingM*3/2,
+		orange, arrWidth,
 	)
 	fmt.Println()
 
-	fmt.Printf(`  <line x1="%d" y1="%d" x2="%d" y2="%d" stroke="red" stroke-width="1" />`,
-		0, allHeight, allWidth, allHeight)
-	fmt.Printf(`  <line x1="%d" y1="%d" x2="%d" y2="%d" stroke="red" stroke-width="1" />`,
-		allWidth, 0, allWidth, allHeight)
-
+	/*
+		fmt.Printf(`  <line x1="%d" y1="%d" x2="%d" y2="%d" stroke="red" stroke-width="1" />`,
+			0, allHeight, allWidth, allHeight)
+		fmt.Printf(`  <line x1="%d" y1="%d" x2="%d" y2="%d" stroke="red" stroke-width="1" />`,
+			allWidth, 0, allWidth, allHeight)
+	*/
 	fmt.Println(`</svg>`)
 }
 

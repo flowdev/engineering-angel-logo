@@ -7,15 +7,18 @@ import (
 
 func main() {
 	// global
-	oSize := 100
-	//red := "#b00b0b"
+	oSize := 120
 	blue := "#00569a"
+	//red := "#b00b0b"
 	//green := "#0aa00a"
 	//orange := "#db6200"
 	red := blue
 	green := blue
 	orange := blue
 	margin := oSize / 10
+	if margin < 2 {
+		margin = 2
+	}
 
 	// wing1 (1)
 	wingM := oSize / 5
@@ -62,31 +65,15 @@ func main() {
 
 	// wing1
 	fmt.Printf(`  <path d="M%d,%d
-		Q%d,%d %d,%d
-		T%d,%d
-		T%d,%d
-		Z"
-		fill="%s" />`,
-		wing1X-wingM*2, wingY+wingM*2,
-		margin/3, wingY+wingM*2, margin/3, wingM*2,
-		wingM, margin,
-		wing1X, wingY,
-		orange,
-	)
-	/*
-		fmt.Printf(`  <path d="M%d,%d
+			L%d,%d
 			Q%d,%d %d,%d
-			T%d,%d
-			T%d,%d
 			Z"
-			fill="%s" />`,
-			wing1X, wingY,
-			wingM+margin, wingM*2, wingM, margin*2,
-			margin/2, wingM*2,
-			wing1X-wingM*2, wingY+wingM*2,
-			orange,
-		)
-	*/
+			stroke="%s" stroke-width="%d" fill="none" />`,
+		wing1X-margin/2, wingY,
+		wing1X-wingM*9/4, wingY-wingM*9/4,
+		0, wingY-wingM/2, wing1X-wingM*3/2-margin/2, wingY+wingM*3/2,
+		orange, margin,
+	)
 	fmt.Println()
 
 	// O
@@ -132,16 +119,14 @@ func main() {
 
 	// wing2
 	fmt.Printf(`  <path d="M%d,%d
-		Q%d,%d %d,%d
-		T%d,%d
-		T%d,%d
-		Z"
-		fill="%s" />`,
-		wing2X, wingY,
-		allWidth-wingM-margin, wingM*2, allWidth-wingM, margin*2,
-		allWidth-margin/2, wingM*2,
-		allWidth-wing1X+wingM*2, wingY+wingM*2,
-		orange,
+			L%d,%d
+			Q%d,%d %d,%d
+			Z"
+			stroke="%s" stroke-width="%d" fill="none" />`,
+		wing2X+margin/2, wingY,
+		wing2X+wingM*9/4, wingY-wingM*9/4,
+		allWidth, wingY-wingM/2, wing2X+wingM*3/2+margin/2, wingY+wingM*3/2,
+		orange, margin,
 	)
 	fmt.Println()
 
