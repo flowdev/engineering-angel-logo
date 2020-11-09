@@ -5,16 +5,18 @@ import (
 	"math"
 )
 
+// SVG logo for EngineeringAngel, EngNgl, E-NGL, }|->o{, |->o:)
+
 func main() {
 	// global
-	oSize := 120
+	oSize := 360
 	blue := "#00569a"
-	//red := "#b00b0b"
-	//green := "#0aa00a"
-	//orange := "#db6200"
-	red := blue
-	green := blue
-	orange := blue
+	red := "#b00b0b"
+	green := "#0aa00a"
+	orange := "#db6200"
+	//red := blue
+	//green := blue
+	//orange := blue
 	margin := oSize / 10
 	if margin < 2 {
 		margin = 2
@@ -22,7 +24,7 @@ func main() {
 
 	// wing1 (1)
 	wingM := oSize / 5
-	wing1X := oSize - wingM
+	wing1X := oSize - wingM*4/2 + margin/2
 
 	// O (1)
 	oR := oSize / 4
@@ -33,6 +35,7 @@ func main() {
 
 	// ^
 	arrWidth := margin * 2
+	arrHeadR := arrWidth / 2
 	arrHeadLen := oSize * 3 / 4
 	arrHeadX := wing1X + arrHeadLen*1/6
 	arrHeadY := oY + oR + margin
@@ -71,7 +74,7 @@ func main() {
 			stroke="%s" stroke-width="%d" fill="none" />`,
 		wing1X-margin/2, wingY,
 		wing1X-wingM*9/4, wingY-wingM*9/4,
-		0, wingY-wingM/2, wing1X-wingM*3/2-margin/2, wingY+wingM*3/2,
+		-wingM/2, wingY-wingM/2, wing1X-wingM*3/2-margin/2, wingY+wingM*3/2,
 		orange, margin,
 	)
 	fmt.Println()
@@ -81,29 +84,16 @@ func main() {
 	fmt.Println()
 
 	// ^
-	sin45 := 0.5 * math.Sqrt(2.0) // sin(45 degree) == (1/2) * sqrt(2) == cos(45 degree)
-	arrHeadR := arrWidth / 2
-	arrHeadShift := int(math.Round(float64(arrHeadR) * sin45))
-	arrHeadLowShift := pythagorasSmall(arrWidth)
-	arrHeadBigLineWH := pythagorasSmall(arrHeadLen - arrWidth + arrHeadShift)
-	arrHeadSmlLineWH := pythagorasSmall(arrHeadLen - arrWidth - arrWidth/2 + arrHeadShift)
 	fmt.Printf(`  <path d="M%d,%d
+		h%d
 		a%d,%d 0 0,1 %d,%d
-		l %d,%d
-		a%d,%d 0 0,1 %d,%d
-		l %d,%d
-		l %d,%d
-		a%d,%d 0 0,1 %d,%d
-		Z"
-		fill="%s" />`,
-		arrHeadX-arrHeadShift, arrHeadY+arrHeadR-arrHeadShift,
-		arrHeadR, arrHeadR, arrHeadShift*2, 0,
-		arrHeadBigLineWH, arrHeadBigLineWH,
-		arrHeadR, arrHeadR, -arrHeadLowShift, arrHeadLowShift,
-		-arrHeadSmlLineWH, -arrHeadSmlLineWH,
-		-arrHeadSmlLineWH, arrHeadSmlLineWH,
-		arrHeadR, arrHeadR, -arrHeadLowShift, -arrHeadLowShift,
-		blue,
+		v%d"
+		transform="rotate(-45 %d %d)" stroke="%s" stroke-width="%d" stroke-linecap="round" fill="none" />`,
+		arrHeadX-arrHeadLen+arrHeadR+margin, arrHeadY+arrHeadR,
+		arrHeadLen-arrHeadR*3/2-margin,
+		arrHeadR/2, arrHeadR/2, arrHeadR/2, arrHeadR/2,
+		arrHeadLen-arrHeadR*3/2-margin,
+		arrHeadX, arrHeadY+arrHeadR, blue, arrWidth,
 	)
 	fmt.Println()
 
@@ -125,7 +115,7 @@ func main() {
 			stroke="%s" stroke-width="%d" fill="none" />`,
 		wing2X+margin/2, wingY,
 		wing2X+wingM*9/4, wingY-wingM*9/4,
-		allWidth, wingY-wingM/2, wing2X+wingM*3/2+margin/2, wingY+wingM*3/2,
+		allWidth+wingM/2, wingY-wingM/2, wing2X+wingM*3/2+margin/2, wingY+wingM*3/2,
 		orange, margin,
 	)
 	fmt.Println()

@@ -7,14 +7,14 @@ import (
 
 func main() {
 	// global
-	oSize := 120
+	oSize := 12
 	blue := "#00569a"
-	//red := "#b00b0b"
-	//green := "#0aa00a"
-	//orange := "#db6200"
-	red := blue
-	green := blue
-	orange := blue
+	red := "#b00b0b"
+	green := "#0aa00a"
+	orange := "#db6200"
+	//red := blue
+	//green := blue
+	//orange := blue
 	margin := oSize / 10
 	if margin < 2 {
 		margin = 2
