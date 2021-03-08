@@ -2,21 +2,20 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
-// SVG logo for EngineeringAngel, EngNgl, E-NGL, }|->o{, |->o:)
+// SVG logo for EngineeringAngel, EngNgl, |->{o
 
 func main() {
 	// global
-	oSize := 360
+	oSize := 120
 	blue := "#00569a"
-	red := "#b00b0b"
-	green := "#0aa00a"
-	orange := "#db6200"
-	//red := blue
-	//green := blue
-	//orange := blue
+	//red := "#b00b0b"
+	//green := "#0aa00a"
+	//orange := "#db6200"
+	red := blue
+	green := blue
+	orange := blue
 	margin := oSize / 10
 	if margin < 2 {
 		margin = 2
@@ -72,8 +71,8 @@ func main() {
 			Q%d,%d %d,%d
 			Z"
 			stroke="%s" stroke-width="%d" fill="none" />`,
-		wing1X-margin/2, wingY,
-		wing1X-wingM*9/4, wingY-wingM*9/4,
+		wing1X-margin, wingY+margin/2,
+		wing1X-wingM*9/4-margin/2, wingY-wingM*9/4,
 		-wingM/2, wingY-wingM/2, wing1X-wingM*3/2-margin/2, wingY+wingM*3/2,
 		orange, margin,
 	)
@@ -113,8 +112,8 @@ func main() {
 			Q%d,%d %d,%d
 			Z"
 			stroke="%s" stroke-width="%d" fill="none" />`,
-		wing2X+margin/2, wingY,
-		wing2X+wingM*9/4, wingY-wingM*9/4,
+		wing2X+margin, wingY+margin/2,
+		wing2X+wingM*9/4+margin/2, wingY-wingM*9/4,
 		allWidth+wingM/2, wingY-wingM/2, wing2X+wingM*3/2+margin/2, wingY+wingM*3/2,
 		orange, margin,
 	)
@@ -127,8 +126,4 @@ func main() {
 			allWidth, 0, allWidth, allHeight)
 	*/
 	fmt.Println(`</svg>`)
-}
-
-func pythagorasSmall(c int) int {
-	return int(math.Round(math.Sqrt(float64(c * c / 2))))
 }
