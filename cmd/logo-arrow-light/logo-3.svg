@@ -4,7 +4,7 @@
 			L18,12
 			Q-12,54 36,102
 			Z"
-			stroke="#db6200" stroke-width="12" fill="none" />
+			stroke="#00569a" stroke-width="12" fill="none" />
   <circle cx="93" cy="30" r="30" fill="#0aa00a" />
   <path d="M27,84
 		h60
@@ -17,5 +17,5 @@
 			L168,12
 			Q198,54 150,102
 			Z"
-			stroke="#db6200" stroke-width="12" fill="none" />
+			stroke="#00569a" stroke-width="12" fill="none" />
 </svg>

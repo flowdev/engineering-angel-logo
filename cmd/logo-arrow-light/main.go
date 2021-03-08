@@ -10,11 +10,11 @@ func main() {
 	// global
 	oSize := 120
 	blue := "#00569a"
-	//red := "#b00b0b"
-	//green := "#0aa00a"
+	red := "#b00b0b"
+	green := "#0aa00a"
 	//orange := "#db6200"
-	red := blue
-	green := blue
+	//red := blue
+	//green := blue
 	orange := blue
 	margin := oSize / 10
 	if margin < 2 {
