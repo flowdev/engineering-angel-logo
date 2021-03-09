@@ -5,17 +5,17 @@ import (
 	"math"
 )
 
-// SVG logo for EngineeringAngel, EngNgl, E-NGL, }|->o{, ->o:)
+// SVG logo for EngineeringAngel, EngNgl, E-NGL, |->{o
 
 func main() {
 	// global
 	oSize := 120
 	blue := "#00569a"
-	//red := "#b00b0b"
-	//green := "#0aa00a"
+	red := "#b00b0b"
+	green := "#0aa00a"
 	//orange := "#db6200"
-	red := blue
-	green := blue
+	//red := blue
+	//green := blue
 	orange := blue
 	margin := oSize / 10
 	if margin < 2 {
@@ -91,28 +91,16 @@ func main() {
 	fmt.Println()
 
 	// ^
-	sin45 := 0.5 * math.Sqrt(2.0) // sin(45 degree) == (1/2) * sqrt(2) == cos(45 degree)
-	arrHeadShift := int(math.Round(float64(arrHeadR) * sin45))
-	arrHeadLowShift := pythagorasSmall(arrWidth)
-	arrHeadBigLineWH := pythagorasSmall(arrHeadLen - arrWidth + arrHeadShift)
-	arrHeadSmlLineWH := pythagorasSmall(arrHeadLen - arrWidth - arrHeadR + arrHeadShift)
 	fmt.Printf(`  <path d="M%d,%d
+		h%d
 		a%d,%d 0 0,1 %d,%d
-		l %d,%d
-		a%d,%d 0 0,1 %d,%d
-		l %d,%d
-		l %d,%d
-		a%d,%d 0 0,1 %d,%d
-		Z"
-		fill="%s" />`,
-		arrHeadX-arrHeadShift, arrHeadY+arrHeadR-arrHeadShift,
-		arrHeadR, arrHeadR, arrHeadShift*2, 0,
-		arrHeadBigLineWH, arrHeadBigLineWH,
-		arrHeadR, arrHeadR, -arrHeadLowShift, arrHeadLowShift,
-		-arrHeadSmlLineWH, -arrHeadSmlLineWH,
-		-arrHeadSmlLineWH, arrHeadSmlLineWH,
-		arrHeadR, arrHeadR, -arrHeadLowShift, -arrHeadLowShift,
-		blue,
+		v%d"
+		transform="rotate(-45 %d %d)" stroke="%s" stroke-width="%d" stroke-linecap="round" fill="none" />`,
+		arrHeadX-arrHeadLen+arrHeadR+margin, arrHeadY+arrHeadR,
+		arrHeadLen-arrHeadR*3/2-margin,
+		arrHeadR/2, arrHeadR/2, arrHeadR/2, arrHeadR/2,
+		arrHeadLen-arrHeadR*3/2-margin,
+		arrHeadX, arrHeadY+arrHeadR, blue, arrWidth,
 	)
 	fmt.Println()
 
