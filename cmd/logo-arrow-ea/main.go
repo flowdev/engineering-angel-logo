@@ -4,12 +4,12 @@ import (
 	"fmt"
 )
 
-// SVG logo for EngineeringAngel, EngNgl, |->Xo, }|->o{, E|->oA
+// SVG logo for EngineeringAngel, EngNgl, |->Xo, E|->oA, Eo<-|A
 
 func main() {
 	// global
 	oSize := 120
-	blue := "#00569a"
+	blue := "#0091d3"
 	red := "#b00b0b"
 	green := "#0aa00a"
 	//orange := "#db6200"
@@ -23,7 +23,7 @@ func main() {
 
 	// wing1 (1)
 	wingM := oSize / 5
-	wing1X := oSize - wingM + margin
+	wing1X := oSize - 3*margin
 
 	// O (1)
 	oR := oSize / 4
@@ -36,19 +36,19 @@ func main() {
 	arrWidth := margin * 2
 	arrHeadR := arrWidth / 2
 	arrHeadLen := oSize * 3 / 4
-	arrHeadX := wing1X + arrHeadLen*1/6
-	arrHeadY := oY + oR + margin
+	arrHeadX := wing1X + arrHeadLen*1/2 - margin
+	arrHeadY := oY + oR + margin/2
 
 	// O (2)
 	oX := arrHeadX
 
 	// |
-	arrShaftY := arrHeadY + arrWidth*2
-	arrShaftX := arrHeadX - arrWidth/2
-	arrShaftLen := arrHeadLen
+	arrShaftY := arrHeadY + arrWidth*2 + margin
+	arrShaftX := arrHeadX
+	arrShaftLen := arrHeadLen - arrWidth
 
 	// square
-	squareY := arrShaftY + arrShaftLen + margin
+	squareY := arrShaftY + arrShaftLen + margin*3/2
 	squareWidth := oSize
 	squareHeight := wingM
 
@@ -66,15 +66,16 @@ func main() {
 	fmt.Println()
 
 	// wing1
-	fmt.Printf(`  <path d="M%d,%d
-			L%d,%d
-			Q%d,%d %d,%d
-			Z"
-			stroke="%s" stroke-width="%d" fill="none" />`,
-		wing1X-margin*3/2, wingY+margin/4,
-		wing1X-wingM*9/4-margin, wingY-wingM*9/4,
-		-wingM+margin/2, wingY+margin/2, wing1X-wingM*3-margin/2, wingY+wingM*3-margin/2,
-		orange, margin*5/4,
+	fmt.Printf(`  <path d="M%d,%d h%d
+	    M%d,%d v%d
+	    M%d,%d v%d
+	    M%d,%d v%d"
+		transform="rotate(45 %d %d)" stroke="%s" stroke-width="%d" stroke-linecap="round" />`,
+		wing1X, wingY, -arrWidth*2-margin*2,
+		wing1X, wingY, arrWidth*4/2,
+		wing1X-arrWidth-margin, wingY, arrWidth*3/2,
+		wing1X-arrWidth*2-margin*2, wingY, arrWidth*2/2,
+		wing1X, wingY, orange, arrWidth,
 	)
 	fmt.Println()
 
@@ -97,8 +98,11 @@ func main() {
 	fmt.Println()
 
 	// |
-	fmt.Printf(`  <rect x="%d" y="%d" width="%d" height="%d" rx="%d" ry="%d" fill="%s" />`,
-		arrShaftX, arrShaftY, arrWidth, arrShaftLen, arrWidth/2, arrWidth/2, blue)
+	fmt.Printf(`  <path d="M%d,%d v%d"
+		stroke="%s" stroke-width="%d" stroke-linecap="round" fill="none" />`,
+		arrShaftX, arrShaftY, arrShaftLen,
+		blue, arrWidth,
+	)
 	fmt.Println()
 
 	// square
@@ -107,15 +111,16 @@ func main() {
 	fmt.Println()
 
 	// wing2
-	fmt.Printf(`  <path d="M%d,%d
-			L%d,%d
-			Q%d,%d %d,%d
-			Z"
-			stroke="%s" stroke-width="%d" fill="none" />`,
-		wing2X+margin*3/2, wingY+margin/4,
-		wing2X+wingM*9/4+margin, wingY-wingM*9/4,
-		allWidth+wingM-margin/2, wingY+margin/2, wing2X+wingM*3+margin/2, wingY+wingM*3-margin/2,
-		orange, margin*5/4,
+	fmt.Printf(`  <path d="M%d,%d v%d
+		m0,0 h%d
+	    m0,0 L%d,%d
+		M%d,%d h%d"
+		transform="rotate(45 %d %d)" stroke="%s" stroke-width="%d" stroke-linecap="round" />`,
+		wing2X, wingY, -arrWidth*2-margin*2,
+		arrWidth,
+		wing2X+arrWidth*2, wingY,
+		wing2X, wingY-arrWidth, arrWidth*3/2,
+		wing2X, wingY, orange, arrWidth,
 	)
 	fmt.Println()
 

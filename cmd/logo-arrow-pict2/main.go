@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// SVG logo for EngineeringAngel, EngNgl, E-NGL, }|->o{, ->o:)
+// SVG logo for EngineeringAngel, EngNgl, E-NGL, }|->o{
 
 func main() {
 	// global

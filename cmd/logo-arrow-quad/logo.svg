@@ -4,7 +4,7 @@
 			L42,12
 			Q-18,72 30,132
 			Z"
-			stroke="#00569a" stroke-width="15" fill="none" />
+			stroke="#00569a" stroke-width="15" stroke-linecap="round" fill="none" />
   <circle cx="123" cy="30" r="30" fill="#0aa00a" />
   <path d="M57,84
 		h60
